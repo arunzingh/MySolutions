@@ -1,11 +1,17 @@
+
+# generated files
+bin/
+build/
+gen/
+
+# Android Studio Files
 *.iml
+.idea/
+captures/
+*.exec
+
+
 .gradle
 /local.properties
-/.idea/caches/build_file_checksums.ser
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
 .DS_Store
-/build
-/captures
 .externalNativeBuild
