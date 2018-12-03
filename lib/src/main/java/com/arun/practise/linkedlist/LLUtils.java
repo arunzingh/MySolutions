@@ -38,6 +38,24 @@ public class LLUtils {
     }
 
 
+    static void printListDown(Node head) {
+        if (head == null) {
+            return;
+        }
+
+        Node curr = head;
+
+        while (curr != null) {
+            System.out.print(curr.data);
+            if (curr.down != null) {
+                System.out.print(" -> ");
+            }
+            curr = curr.down;
+        }
+        System.out.println();
+    }
+
+
 
     @Test
     public void test_getLength() {
