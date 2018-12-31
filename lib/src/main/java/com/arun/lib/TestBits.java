@@ -37,18 +37,44 @@ public class TestBits {
      long APP_FEATURE_FOOD_TSP = 1 << 18;
      long APP_FEATURE_RECEIPT_V4 = 1 << 19;
      long APP_FEATURE_FOOD_ORDER_BATCHING = 1 << 20;
+     long CNPU = 1 << 25;
+
+
+     // Job flags
+     int DEFAULT = 0;
+    int ADVANCED = 1;
+    int CASHLESS = 1 << 1;
+    int FIXED_FARE = 1 << 2;
+    int PROMO = 1 << 3;
+    int HIDE_DROPOFF = 1 << 4;
+    int ASSIGNMENT = 1 << 5;
+    int SUPPLY_POOLING = 1 << 7;
+    int POOLING = 1 << 15;
+    int BACK_TO_BACK = 1 << 16;
+    int GRAB_EXPRESS = 1 << 17;
+    int GRAB_NOW = 1 << 18;
+    int FAV_LOC = 1 << 19;
+    int AUTO_ASSIGNMENT = 1 << 21;
+    int GRABSHARE_MATCH = 1 << 23;
+    int GRAB_FOOD = 1 << 24;
+    int GRAB_RENT = 1 << 25;
+    int BATCHED = 1 << 26;
 
     
     int feature = 1098846421;
-    long appFeature = 1436;
+    long appFeature = 57335774;
+    int jobtype = 6316132;
 
     int featureFlag = FEATURE_IN_APP_NAV;
-    long appFeatureFlag = APP_FEATURE_AXONIFY_TRAINING;
+    long appFeatureFlag = CNPU;
+    int jobFlag = ASSIGNMENT;
 
     @Test
     public void test_FeatureFlag() {
         System.out.println("feature flag is " + compare(featureFlag, feature));
         System.out.println("App feature flag is " + compare(appFeatureFlag, appFeature));
+        System.out.println("job type flag " + compare(jobFlag, jobtype));
+        System.out.println("1 << 2 = " + (1 << 2));
     }
 
 
