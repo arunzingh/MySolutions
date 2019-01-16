@@ -67,7 +67,7 @@ public class TestBits {
 
     int featureFlag = FEATURE_IN_APP_NAV;
     long appFeatureFlag = CNPU;
-    int jobFlag = ASSIGNMENT;
+    int jobFlag = BACK_TO_BACK;
 
     @Test
     public void test_FeatureFlag() {
