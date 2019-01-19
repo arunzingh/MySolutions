@@ -62,7 +62,7 @@ public class TestBits {
 
     
     int feature = 1098846421;
-    long appFeature = 57335774;
+    long appFeature = 18878396;
     int jobtype = 6316132;
 
     int featureFlag = FEATURE_IN_APP_NAV;
