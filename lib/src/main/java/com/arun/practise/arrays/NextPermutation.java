@@ -29,24 +29,27 @@ public class NextPermutation {
         }
 
 
-        int right = nums.length - 1;
+        int i = nums.length - 1;
 
-        while (right > 0 && nums[right] <= nums[right - 1]) {
-            right--;
+        while (i > 0 && nums[i] <= nums[i - 1]) {
+            i--;
         }
 
-        if (right <= 0) {
-            // reverse
-            reverse(nums);
-        } else if (right > 0) {
-            swap(nums, right, right - 1);
+        if (i == 0) {
+            // nothing to swap
+            reverse(nums, 0, nums.length - 1);
+        } else {
+            int j = i;
+            while (j < nums.length && nums[j] > nums[i - 1]) {
+                j++;
+            }
+
+            swap(nums, i - 1, j - 1);
+            reverse(nums, i, nums.length - 1);
         }
     }
 
-    void reverse(int[] nums) {
-        int left = 0;
-        int right = nums.length - 1;
-
+    void reverse(int[] nums, int left, int right) {
         while (left < right) {
             swap(nums, left, right);
             left++;
@@ -67,9 +70,9 @@ public class NextPermutation {
         solution.nextPermutation(input);
         Assert.assertArrayEquals(new int[]{1}, input);
 
-//        input = new int[]{1, 3, 2};
-//        solution.nextPermutation(input);
-//        Assert.assertArrayEquals(new int[]{2, 1, 3}, input);
+        input = new int[]{1, 3, 2};
+        solution.nextPermutation(input);
+        Assert.assertArrayEquals(new int[]{2, 1, 3}, input);
 
         input = new int[]{1, 2, 3};
         solution.nextPermutation(input);
