@@ -1,6 +1,5 @@
 package com.arun.practise.heap;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;

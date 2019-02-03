@@ -125,7 +125,63 @@ public class JumpGame {
         return jumps[nums.length - 1];
     }
 
-    
+
+    public int jumpDp2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int[] mem = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            mem[i] = Integer.MAX_VALUE;
+        }
+
+        mem[0] = 0;
+
+        for (int i = 1; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (j + nums[j] >= i) {
+                    mem[i] = Math.min(mem[i], mem[j] + 1);
+                }
+            }
+        }
+
+        return mem[nums.length - 1];
+    }
+
+    public int jumpLinear(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        if (nums.length == 1) {
+            return nums[0] > 0 ? 1 : 0;
+        }
+
+        int steps = nums[0];
+        int maxReach = nums[0];
+        int jump = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+
+            if (i == nums.length - 1)
+                return jump;
+
+            steps--;
+
+            maxReach = Math.max(maxReach, i + nums[i]);
+
+            if (steps == 0) {
+                jump++;
+
+                steps = maxReach - i;
+            }
+        }
+
+        return jump;
+    }
+
     @Test
     public void test_canJump() {
         JumpGame solution = new JumpGame();
@@ -152,5 +208,23 @@ public class JumpGame {
         JumpGame solution = new JumpGame();
         Assert.assertEquals(2, solution.jumpDp(new int[]{2, 3, 1, 1, 4}));
         Assert.assertEquals(3, solution.jumpDp(new int[]{1, 1, 1, 1}));
+    }
+
+    @Test
+    public void test_minJumpDp2() {
+        JumpGame solution = new JumpGame();
+        Assert.assertEquals(2, solution.jumpDp2(new int[]{2, 3, 1, 1, 4}));
+        Assert.assertEquals(3, solution.jumpDp2(new int[]{1, 1, 1, 1}));
+    }
+
+    @Test
+    public void test_minJumpLinear() {
+        JumpGame solution = new JumpGame();
+        Assert.assertEquals(2, solution.jumpLinear(new int[]{2, 3, 1, 1, 4}));
+        Assert.assertEquals(3, solution.jumpLinear(new int[]{1, 1, 1, 1}));
+        Assert.assertEquals(1, solution.jumpLinear(new int[]{2, 1}));
+        Assert.assertEquals(0, solution.jumpLinear(new int[]{0}));
+        Assert.assertEquals(1, solution.jumpLinear(new int[]{1}));
+        Assert.assertEquals(1, solution.jumpLinear(new int[]{2}));
     }
 }
