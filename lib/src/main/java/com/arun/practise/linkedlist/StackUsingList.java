@@ -7,13 +7,13 @@ import java.util.NoSuchElementException;
 
 public class StackUsingList {
 
-    Node top;
+    ListNode top;
 
     boolean push(int element) {
 
-        Node newNode = new Node(element);
-        newNode.next = top;
-        top = newNode;
+        ListNode newListNode = new ListNode(element);
+        newListNode.next = top;
+        top = newListNode;
         return true;
     }
 
@@ -21,14 +21,14 @@ public class StackUsingList {
         if (top == null)
             throw new NoSuchElementException("stack is empty");
 
-        return top.data;
+        return top.val;
     }
 
     int pop() {
         if (top == null)
             throw new NoSuchElementException("stack is empty");
 
-        int element = top.data;
+        int element = top.val;
         top = top.next;
         return element;
     }

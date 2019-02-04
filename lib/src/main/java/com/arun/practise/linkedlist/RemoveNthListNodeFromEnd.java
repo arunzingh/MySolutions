@@ -7,13 +7,13 @@ import org.junit.Test;
  * https://leetcode.com/problems/remove-nth-node-from-end-of-list/
  *
  */
-public class RemoveNthNodeFromEnd {
+public class RemoveNthListNodeFromEnd {
 
-    Node removeNthNode(Node head, int n) {
+    ListNode removeNthNode(ListNode head, int n) {
         if (head == null) return null;
 
-        Node slow = head;
-        Node fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
 
         int count = 0;
 
@@ -40,27 +40,27 @@ public class RemoveNthNodeFromEnd {
 
     @Test
     public void test_removeNthNode() {
-        RemoveNthNodeFromEnd solution = new RemoveNthNodeFromEnd();
+        RemoveNthListNodeFromEnd solution = new RemoveNthListNodeFromEnd();
 
-        Node n1 = new Node(1);
-        Node n2 = new Node(2);
-        Node n3 = new Node(3);
-        Node n4 = new Node(4);
-        Node n5 = new Node(5);
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
 
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
 
-        Node result = solution.removeNthNode(n1, 2);
+        ListNode result = solution.removeNthNode(n1, 2);
         LLUtils.printList(result);
 
 
-        n1 = new Node(1);
-        n2 = new Node(2);
-        n3 = new Node(3);
-        n4 = new Node(4);
+        n1 = new ListNode(1);
+        n2 = new ListNode(2);
+        n3 = new ListNode(3);
+        n4 = new ListNode(4);
 
         n1.next = n2;
         n2.next = n3;
@@ -70,10 +70,10 @@ public class RemoveNthNodeFromEnd {
         result = solution.removeNthNode(n1, 2);
         LLUtils.printList(result);
 
-        n1 = new Node(1);
-        n2 = new Node(2);
-        n3 = new Node(3);
-        n4 = new Node(4);
+        n1 = new ListNode(1);
+        n2 = new ListNode(2);
+        n3 = new ListNode(3);
+        n4 = new ListNode(4);
 
         n1.next = n2;
         n2.next = n3;
@@ -83,10 +83,10 @@ public class RemoveNthNodeFromEnd {
         result = solution.removeNthNode(n1, 3);
         LLUtils.printList(result);
 
-        n1 = new Node(1);
-        n2 = new Node(2);
-        n3 = new Node(3);
-        n4 = new Node(4);
+        n1 = new ListNode(1);
+        n2 = new ListNode(2);
+        n3 = new ListNode(3);
+        n4 = new ListNode(4);
 
         n1.next = n2;
         n2.next = n3;
@@ -95,7 +95,7 @@ public class RemoveNthNodeFromEnd {
         result = solution.removeNthNode(n1, 4);
         LLUtils.printList(result);
 
-        n1 = new Node(1);
+        n1 = new ListNode(1);
 
         result = solution.removeNthNode(n1, 1);
         Assert.assertNull(result);

@@ -7,19 +7,19 @@ import java.util.NoSuchElementException;
 
 public class QueueUsingList {
 
-    Node head;
-    Node tail;
+    ListNode head;
+    ListNode tail;
 
     boolean add(int element) {
-        Node newNode = new Node(element);
+        ListNode newListNode = new ListNode(element);
 
         if (tail != null) {
-            tail.next = newNode;
+            tail.next = newListNode;
         }
-        tail = newNode;
+        tail = newListNode;
 
         if (head == null) {
-            head = newNode;
+            head = newListNode;
         }
 
         return true;
@@ -29,7 +29,7 @@ public class QueueUsingList {
         if (head == null)
             throw new NoSuchElementException("queue is empty");
 
-        int element = head.data;
+        int element = head.val;
         head = head.next;
 
         if (head == null)
@@ -42,7 +42,7 @@ public class QueueUsingList {
         if (head == null)
             throw new NoSuchElementException("queue is empty");
 
-        return head.data;
+        return head.val;
     }
 
 

@@ -7,12 +7,12 @@ import org.junit.Test;
  */
 public class FlattenLinkedList {
 
-    Node flatten(Node head) {
-        Node curr = head;
-        Node result = null;
+    ListNode flatten(ListNode head) {
+        ListNode curr = head;
+        ListNode result = null;
 
         while (curr.next != null) {
-            Node next = curr.next.next;
+            ListNode next = curr.next.next;
             result = merge(curr, curr.next);
 
             result.next = next;
@@ -23,7 +23,7 @@ public class FlattenLinkedList {
     }
 
 
-    Node merge(Node head1, Node head2) {
+    ListNode merge(ListNode head1, ListNode head2) {
         if (head1 == null) {
             return head2;
         }
@@ -32,9 +32,9 @@ public class FlattenLinkedList {
             return head1;
         }
 
-        Node result;
+        ListNode result;
 
-        if (head1.data < head2.data) {
+        if (head1.val < head2.val) {
             result = head1;
             result.down = merge(head1.down, head2);
         } else {
@@ -50,31 +50,31 @@ public class FlattenLinkedList {
     public void test_flatten() {
         FlattenLinkedList solution = new FlattenLinkedList();
 
-        Node a1 = new Node(5);
-        Node a2 = new Node(7);
-        Node a3 = new Node(8);
-        Node a4 = new Node(30);
+        ListNode a1 = new ListNode(5);
+        ListNode a2 = new ListNode(7);
+        ListNode a3 = new ListNode(8);
+        ListNode a4 = new ListNode(30);
 
         a1.down = a2;
         a2.down = a3;
         a3.down = a4;
 
-        Node b1 = new Node(10);
-        Node b2 = new Node(20);
+        ListNode b1 = new ListNode(10);
+        ListNode b2 = new ListNode(20);
 
         b1.down = b2;
 
-        Node c1 = new Node(19);
-        Node c2 = new Node(22);
-        Node c3 = new Node(50);
+        ListNode c1 = new ListNode(19);
+        ListNode c2 = new ListNode(22);
+        ListNode c3 = new ListNode(50);
 
         c1.down = c2;
         c2.down = c3;
 
-        Node d1 = new Node(28);
-        Node d2 = new Node(35);
-        Node d3 = new Node(40);
-        Node d4 = new Node(45);
+        ListNode d1 = new ListNode(28);
+        ListNode d2 = new ListNode(35);
+        ListNode d3 = new ListNode(40);
+        ListNode d4 = new ListNode(45);
 
         d1.down = d2;
         d2.down = d3;
@@ -84,7 +84,7 @@ public class FlattenLinkedList {
         b1.next = c1;
         c1.next = d1;
 
-        Node result = solution.flatten(a1);
+        ListNode result = solution.flatten(a1);
         LLUtils.printListDown(result);
     }
 
