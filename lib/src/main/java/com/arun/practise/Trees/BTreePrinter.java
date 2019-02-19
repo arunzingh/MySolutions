@@ -1,4 +1,4 @@
-package com.arun.practise.Trees;
+package com.arun.practise.trees;
 
 import java.util.ArrayList;
 import java.util.Collections;

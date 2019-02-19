@@ -1,4 +1,4 @@
-package com.arun.practise.Trees;
+package com.arun.practise.trees;
 
 import org.junit.Test;
 

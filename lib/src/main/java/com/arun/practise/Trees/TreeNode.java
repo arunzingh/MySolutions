@@ -1,4 +1,4 @@
-package com.arun.practise.Trees;
+package com.arun.practise.trees;
 
 public class TreeNode<T> {
     int val;
