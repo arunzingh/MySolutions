@@ -63,11 +63,14 @@ public class TestBits {
     
     int feature = 1098846421;
     long appFeature = 18878396;
-    int jobtype = 6316132;
+    int jobtype = 4;
 
     int featureFlag = FEATURE_IN_APP_NAV;
     long appFeatureFlag = CNPU;
-    int jobFlag = BACK_TO_BACK;
+    int jobFlag = AUTO_ASSIGNMENT;
+
+    int TCP_ECASH_VERIFY_ACCOUNT = 1 << 2;
+    int paysiEndpoints = 127;
 
     @Test
     public void test_FeatureFlag() {
@@ -75,6 +78,7 @@ public class TestBits {
         System.out.println("App feature flag is " + compare(appFeatureFlag, appFeature));
         System.out.println("job type flag " + compare(jobFlag, jobtype));
         System.out.println("1 << 2 = " + (1 << 2));
+        System.out.println("paysi endpoints flag " + compare(TCP_ECASH_VERIFY_ACCOUNT, paysiEndpoints));
     }
 
 
