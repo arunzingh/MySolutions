@@ -63,11 +63,11 @@ public class TestBits {
     
     int feature = 1098846421;
     long appFeature = 18878396;
-    int jobtype = 4;
+    int jobtype = 110;
 
     int featureFlag = FEATURE_IN_APP_NAV;
     long appFeatureFlag = CNPU;
-    int jobFlag = AUTO_ASSIGNMENT;
+    int jobFlag = CASHLESS;
 
     int TCP_ECASH_VERIFY_ACCOUNT = 1 << 2;
     int paysiEndpoints = 127;
