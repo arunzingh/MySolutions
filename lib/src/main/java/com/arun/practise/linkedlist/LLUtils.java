@@ -1,11 +1,13 @@
 package com.arun.practise.linkedlist;
 
+import com.arun.practise.trees.TreeNode;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class LLUtils {
 
-    static int getLength(ListNode head) {
+    public static int getLength(ListNode head) {
         int count = 0;
         if (head == null) {
             return count;
@@ -20,7 +22,7 @@ public class LLUtils {
         return count;
     }
 
-    static void printList(ListNode head) {
+    public static void printList(ListNode head) {
         if (head == null) {
             return;
         }
@@ -37,7 +39,24 @@ public class LLUtils {
         System.out.println();
     }
 
-    static void printListDown(ListNode head) {
+    public static void printList(TreeNode head) {
+        if (head == null) {
+            return;
+        }
+
+        TreeNode curr = head;
+
+        while (curr != null) {
+            System.out.print(curr.val);
+            if (curr.right != null) {
+                System.out.print(" -> ");
+            }
+            curr = curr.right;
+        }
+        System.out.println();
+    }
+
+    public static void printListDown(ListNode head) {
         if (head == null) {
             return;
         }
@@ -54,7 +73,7 @@ public class LLUtils {
         System.out.println();
     }
 
-    static boolean isSame(ListNode head1, ListNode head2) {
+    public static boolean isSame(ListNode head1, ListNode head2) {
         if (head1 == null && head2 == null) {
             return true;
         }

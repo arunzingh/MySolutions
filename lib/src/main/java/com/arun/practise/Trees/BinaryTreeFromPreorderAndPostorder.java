@@ -3,42 +3,41 @@ package com.arun.practise.trees;
 import org.junit.Test;
 
 public class BinaryTreeFromPreorderAndPostorder {
-    int preIndex = 0;
 
     public TreeNode constructFromPrePost(int[] pre, int[] post) {
-        preIndex = 0;
-        return constructFromPrePostUtil(pre, post, 0, post.length - 1);
+        return buildTree(pre, 0, pre.length - 1, post, 0, post.length - 1);
     }
 
-    private TreeNode constructFromPrePostUtil(int[] pre, int[] post, int postStart, int postEnd) {
-        TreeNode node = null;
 
-        if (preIndex < pre.length && postStart <= postEnd && postStart >= 0) {
-            int value = pre[preIndex];
-            node = new TreeNode(value);
-            int rootIndex = search(post, value, postStart, postEnd);
-            preIndex++;
-            if (preIndex < pre.length) {
-                int index2 = search(post, pre[preIndex], postStart, rootIndex - 1);
-
-                node.left = constructFromPrePostUtil(pre, post, postStart, index2);
-                node.right = constructFromPrePostUtil(pre, post, index2, rootIndex - 1);
-            }
-
+    TreeNode buildTree(int[] pre, int preStart, int preEnd, int[] post, int postStart, int postEnd) {
+        if (preStart > preEnd) {
+            return null;
         }
 
-        return node;
+        if (preStart == preEnd) {
+            return new TreeNode(pre[preStart]);
+        }
+
+
+        TreeNode n = new TreeNode(pre[preStart]);
+
+        int subTreePostEnd = search(post, postStart, postEnd, pre[preStart + 1]);
+        int subTreePreEnd = preStart + (subTreePostEnd - postStart) + 1;
+
+        n.left = buildTree(pre, preStart + 1, subTreePreEnd, post, postStart, subTreePostEnd);
+        n.right = buildTree(pre, subTreePreEnd + 1, preEnd, post, subTreePostEnd + 1, postEnd - 1);
+
+        return n;
     }
 
-    private int search(int[] array, int key, int start, int end) {
-
+    private int search(int[] post, int start, int end, int key) {
         for (int i = start; i <= end; i++) {
-            if (array[i] == key) {
+            if (post[i] == key) {
                 return i;
             }
         }
 
-        return -1;
+        throw new IllegalArgumentException(String.format("key not found in post order, key=%s, start=%s, end=%s", key, start, end));
     }
 
     @Test
