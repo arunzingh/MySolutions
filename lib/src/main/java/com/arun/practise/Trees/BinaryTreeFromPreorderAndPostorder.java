@@ -13,7 +13,6 @@ public class BinaryTreeFromPreorderAndPostorder {
         if (preStart > preEnd) {
             return null;
         }
-
         if (preStart == preEnd) {
             return new TreeNode(pre[preStart]);
         }

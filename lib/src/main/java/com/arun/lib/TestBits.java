@@ -4,6 +4,7 @@ import org.junit.Test;
 
 public class TestBits {
 
+    int FEATURE_CREDIT_TOPUP_VIA_WALLET = 1 << 4;
     int FEATURE_FAVORITE_LOCATION = 1 << 17;
      @Deprecated int FEATURE_USE_NEW_AVAILABILITY_API = 1 << 18;
      int FEATURE_AUTO_ASSIGNMENT = 1 << 19;
@@ -37,6 +38,7 @@ public class TestBits {
      long APP_FEATURE_FOOD_TSP = 1 << 18;
      long APP_FEATURE_RECEIPT_V4 = 1 << 19;
      long APP_FEATURE_FOOD_ORDER_BATCHING = 1 << 20;
+    long APP_FEATURE_DRIVER_PROFILE_V2 = 1L << 49;
      long CNPU = 1 << 25;
 
 
@@ -61,12 +63,13 @@ public class TestBits {
     int BATCHED = 1 << 26;
 
     
-    int feature = 1098846421;
-    long appFeature = 18878396;
+    int feature = 1170151637;
+    long appFeature = 4263142819641221014L;
+
     int jobtype = 110;
 
-    int featureFlag = FEATURE_IN_APP_NAV;
-    long appFeatureFlag = CNPU;
+    int featureFlag = FEATURE_CREDIT_TOPUP_VIA_WALLET;
+    long appFeatureFlag = APP_FEATURE_DRIVER_PROFILE_V2;
     int jobFlag = CASHLESS;
 
     int TCP_ECASH_VERIFY_ACCOUNT = 1 << 2;
@@ -79,6 +82,8 @@ public class TestBits {
         System.out.println("job type flag " + compare(jobFlag, jobtype));
         System.out.println("1 << 2 = " + (1 << 2));
         System.out.println("paysi endpoints flag " + compare(TCP_ECASH_VERIFY_ACCOUNT, paysiEndpoints));
+        System.out.println("substring =" + Character.getNumericValue('a') );
+        System.out.println("substring =" + Character.getNumericValue('A') );
     }
 
 
